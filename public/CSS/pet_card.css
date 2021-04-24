@@ -1,0 +1,172 @@
+html{
+box-sizing: border-box;
+}
+*, *::before, *::after{
+box-sizing: inherit;
+}
+
+.block{
+margin:auto;
+width: 1068px;
+background: #CFEFFC;
+}
+.bloc_1{
+margin: auto;
+width: 100%;
+display: flex;
+height: 275px;
+padding: 0px 40px;
+}
+.pet_img{
+    margin-left: 100px;
+    background: #fff;
+    text-align: center;
+    border-radius: 10px;
+}
+.pet_img img {
+    margin: 60px;
+}
+.center{
+background: #ffffff;
+border-radius: 10px;
+margin: auto;
+width: 400px;
+height: 275px;
+}
+.content {
+padding: 21px 21px;
+height: auto;
+}
+.input{
+   margin-bottom: 15px;
+width: 330px;
+font-family: 'Roboto Slab';
+font-style: normal;
+font-weight: 100;
+font-size: 20px;
+line-height: 26px;
+align-items: center;
+letter-spacing: 0.105em;
+color: #054662;
+border-bottom: 1px solid #FF9B9B;
+border-top: none;
+border-left: none;
+border-right: none;
+}
+.bloc_2{
+margin-top: 70px;
+width: 100%;
+display: flex;
+}
+.type{
+margin-left: 140px;
+}
+.type h1{
+font-family: Roboto Slab;
+font-style: normal;
+font-weight: bold;
+font-size: 20px;
+line-height: 26px;
+align-items: center;
+letter-spacing: 0.105em;
+color: #054662;
+}
+p{
+    font-family: Roboto Slab;
+font-style: normal;
+font-weight: 100;
+font-size: 20px;
+line-height: 26px;
+display: flex;
+align-items: center;
+letter-spacing: 0.105em;
+color: #054662;
+
+}
+.sex{
+    display: flex;
+}
+.sex li{
+    margin-left: 20px;
+    display: flex;
+}
+.radio{
+    padding-left: 40px;
+}
+#r1{
+    width: 16px;
+    height: 16px;
+}
+.checkbox+.checkbox, .radio+.radio {
+    margin-top: auto;
+}
+li{
+font-family: Open Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 169.88%;
+letter-spacing: 0.185em;
+color: #006C8E;
+padding-top: 5px;
+}
+#c1{
+    width: 16px;
+    height: 16px;
+}
+.Description{
+   margin-left: 140px;
+}
+.Description h1{
+    font-family: Roboto Slab;
+font-style: normal;
+font-weight: bold;
+font-size: 36px;
+line-height: auto;
+letter-spacing: 0.16em;
+color: #054662;
+padding-bottom: 18px;
+}
+#info{
+    background: #FFFFFF;
+border: 1px solid #054662;
+box-sizing: border-box;
+border-radius: 10px;
+width: 500px;
+height: 200px;
+}
+.border-gradient1{
+align-items: center;
+text-align: center;
+}
+#submit{
+margin-top: 50px ;
+width: 293px;
+height: 60px;
+align-items: center;
+text-align: center;
+border-radius: 30px;
+font-family: 'Roboto Slab';
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 143.7%;
+letter-spacing: 0.1em;
+color: #054662;
+
+border: solid 5px transparent;
+background-image: linear-gradient(#054662, #0881B6),linear-gradient(130deg, #054662, #0881B6);
+background-origin: border-box;
+background-clip: content-box, border-box;
+box-shadow: 2px 1000px 1px #FF9B9B inset;
+}
+
+input[name="sex"] {
+    margin-top: 9px;
+}
+#imageUpload {
+    cursor: pointer;
+}
+#image {
+    display: none;
+}

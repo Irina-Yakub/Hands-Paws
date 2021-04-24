@@ -1,0 +1,88 @@
+
+.header{
+  position: fixed ;
+  top: 0;
+  height: 72px;
+  background-color: #FF9B9B;
+  display: flex;
+  width: 100%;
+  z-index: 10000;
+}
+
+.head_logo-link {
+  height: 71px;
+  margin-left: 38px;
+  display: flex;
+  align-items: center;
+}
+.header_nav {
+  display: flex;
+  margin-left: 90px;
+}
+.main_link {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.1em;
+
+  color: #006C8E;
+  
+  text-decoration: none;
+  margin-left: 30px;
+  width: 190px;
+}
+.Authentification{
+  margin-top: 13px;
+  margin-left: 15px;
+  display: inherit;
+}
+.Sign_up{
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.65);
+  width: 145px;
+  height: 46px;
+  align-items: center;
+  text-align: center;
+  padding: 10px 5px;
+font-family: Roboto Slab;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+letter-spacing: 0.2em;
+color: #006C8E;
+}
+.Sign_in{
+  margin-left: 15px;
+  width: 131px;
+  height: 46px;
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.2em;
+  color: #054662;
+}
+.Profile{
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.65);
+  width: 145px;
+  height: 46px;
+  align-items: center;
+  text-align: center;
+  padding: 10px 5px;
+font-family: Roboto Slab;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+letter-spacing: 0.2em;
+color: #006C8E;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands&Paws</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/CSS/reset.css">
+    <link rel="stylesheet" href="/CSS/petinfo_style.css">
+    <link rel="stylesheet" href="/CSS/footer.css">
+    <link rel="stylesheet" href="/CSS/fonts.css">
+    <link rel="stylesheet" href="/CSS/header.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+        <a href="/" class="head_logo-link">
+        <img src="/HTML/img/Hands&Paws.svg" alt="Main" class="header_logo">
+        <img src="/HTML/img/logo_white.svg" alt="Logo" class="header_logo-pic">
+        </a>
+        </div>
+        <nav class="header_nav">
+            <a href="/" class="main_link">Головна</a>
+            <a href="/catalog" class="main_link">Каталог</a>
+            <a href="/help_us" class="main_link">Help us</a>
+            <a href="/faq" class="main_link">F.A.Q.</a>
+            <div class="Authentification">
+                <a href="/reg" class="Sign_up">Sign Up</a>
+                <a href="/login" class="Sign_in"><u> Log In</u></a>
+            </div>
+            <!-- or <div class="Authentification">
+                <a href="./profile.html" class="Profile">Профіль</a>
+            </div> -->
+        </nav>
+    </div>
+    <div class="bloc_1">
+        <img src="<%- pet.photo %> " style="height: 300px; max-width: 400px; object-fit: contain;" >
+        <div class="block">
+           <h1><%- pet.name %></h1>  <!-- id_pet -->
+            <div class="content">
+                <section class="bloc_1-1">
+                    <p>Порода: </p>
+                    <p>Вік:</p>
+                    <p>Вага:</p>
+                    <p>Стать: </p>
+                    <p>Притулок:</p>
+                    <p>Адреса:</p>
+                </section>
+                <section class="bloc_1-2">  <!-- Ссилається на БД -->
+                    <p id="Category"><%- pet.category %></p>
+                    <p id="Age"><%- pet.age %>  років</p>
+                    <p id="Weight"> <%- pet.weight %>  кг</p>
+                    <p id="Sex"><%- pet.sex %> </p>
+                    <p id="Refuge_name"><%- refuge.name %> </p>
+                    <p id="Address(Refuge)"><%- refuge.address %> </p>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="bloc_2">
+        <h2>Детальний опис</h2>
+        <div class="bloc_2-1">
+            <p id="Info"><%- pet.info %> </p>
+            <% if (pet.user !== user && pet.user == null) { %>
+                <div class="btn">
+                    <button class="border-gradient1" id="shelter">
+                        Прихистити
+                    </button>
+                </div>             
+            <% } %>
+        </div>
+    </div>
+</body>
+<script>
+(() => {
+const btn = document.getElementById('shelter')
+btn.onclick = async () => {
+    const res = await fetch('/api/shelter', 
+        {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ petid: "<%- pet.id %>" })
+        })
+      
+    const contentType = res.headers.get("content-type")
+    if (contentType && contentType.indexOf("application/json") !== -1) {
+        const json = await res.json()
+        console.log(json)
+        if ('redirect' in json) {
+            document.location = `http://localhost:3000${json.redirect}`
+        }
+        return
+    }    
+}
+
+})()
+</script>
+</html>

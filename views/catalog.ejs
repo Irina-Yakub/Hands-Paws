@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="/CSS/reset.css">
+    <link rel="stylesheet" href="/CSS/catalog_style.css">
+    <link rel="stylesheet" href="/CSS/footer.css">
+    <link rel="stylesheet" href="/CSS/fonts.css">
+    <link rel="stylesheet" href="/CSS/header.css">
+</head>
+<body>
+  <div class="header">
+        <div class="logo">
+        <a href="/" class="head_logo-link">
+        <img src="/HTML/img/Hands&Paws.svg" alt="Main" class="header_logo">
+        <img src="/HTML/img/logo_white.svg" alt="Logo" class="header_logo-pic">
+        </a>
+        </div>
+        <nav class="header_nav">
+            <a href="/" class="main_link">Головна</a>
+            <a href="/catalog" class="main_link">Каталог</a>
+            <a href="/helpus" class="main_link">Help us</a>
+            <a href="/faq" class="main_link">F.A.Q.</a>
+            <div class="Authentification">
+              <a href="/reg" class="Sign_up">Sign Up</a>
+              <a href="/login" class="Sign_in"><u> Log In</u></a>
+            </div>
+            <!-- <div class="Authentification">
+              <a href="./profile.html" class="Profile">Профіль</a>
+          </div> -->
+        </nav>
+    </div> 
+<div class="content">
+  <div class="bloc_1">
+    <div class="class">
+        <img src="/HTML/img/undo.png" alt="Скинути налаштування" id="undo">
+        <div class="filter">
+            <div class="type">
+                <p>Вибери вид тварини</p>
+                <ul>
+                    <li>
+                        <label>
+                          Собака
+                          <input name="type" type="checkbox" value="dog">
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                          Кіт
+                          <input name="type" type="checkbox" value="cat">
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                          Гризун
+                          <input name="type" type="checkbox" value="rodent">
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                          Інше
+                          <input name="type" type="checkbox" value="else">
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="sex">
+                <p>Стать</p>
+                <ul>
+                    <li>
+                        <label>
+                          Дівчинка
+                          <input name="sex" value="female" type="checkbox">
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                          Хлопчик
+                          <input name="sex" value="male" type="checkbox">
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="country">
+                <p>Країна</p>
+                <div class="custom-select" style="width:215px; height: 31px; " >
+                <select id="search__country">
+                  <option value="selected" id="select__default" selected>-select-</option>
+                    <option value="Ukraine" >Україна</option>
+                    <option value="Russia">Росія</option>
+                    <option value="Poland">Польща</option>
+                  </select>
+                </div>
+            </div>
+            <div class="search">
+                <p>Пошук за назвою притулку</p>
+                    <input id="refugename" type="text" class="searchTerm" placeholder="Пошук" >
+                    <button id="search"><img src="/HTML/img/search.png" alt=""></button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="bloc_2">
+      <h2>Шукають новий дім</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <% for (let card of cards) { %>
+          <div class="col">
+            <a href="/pet/<%- card.pet.id %> ">
+              <div class="card">
+                <img src="<%= card.pet.photo %>" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><%= card.pet.name %>, <%= card.pet.age %> роки.</h5>
+                  <p class="card-text">Притулок "<%= card.refuge.name %>" <%= card.refuge.address %></p>
+                </div>
+              </div>
+            </a>
+          </div>
+        <% } %>
+      </div>
+  </div>
+</div>  
+<ul class="pagination">
+  <li><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+</ul>
+</div>
+<!-- FOOTER -->
+<footer class="footer">
+  <img src="/HTML/img/footer.png" id="dog">
+  <div class="foot">
+      <div class="f_1">
+      <img src="/HTML/img/logo_white.svg"  class="header_logo-pic2">
+      <select name="countryRef">
+          <option value="Ukraine">Українcька</option>
+          <option value="Russia">Російська</option>
+          <option value="Poland">Польська</option>
+        </select>
+      </div>
+      <div class="f_2">
+          <p>Слідкуйте за нами:</p>
+          <a href="https://www.facebook.com/" class="media">
+          <img src="/HTML/img/facebook 1.png" alt=""></a>
+          <a href="https://twitter.com/?lang=uk" class="media">
+          <img src="/HTML/img/twitter 1.png" alt=""></a>
+          <a href="https://www.instagram.com/" class="media">
+          <img src="/HTML/img/instagram.png" alt=""></a></a>
+      </div>
+      <div class="f_3">
+       <p class="Contacts">Контакти:</p>
+          <div class="Mail">
+              <img src="/HTML/img/message.png" alt="">
+              <p> handp@gmail.com <br>
+                  +380983844425</p>
+          </div>
+       </div>
+       <div class="f_4">
+           <p class="Adress_1">Адреса:</p>
+           <div class="Adress_2">
+              <img src="/HTML/img/location.png" alt="">
+              <p>Україна, м.Львів <br>
+                  вул. Стрийська 18, офіс 102</p>
+           </div>
+       </div>
+  </div>
+</footer>
+</body>
+
+<script>
+(() => {
+  const undo = document.getElementById('undo')
+  undo.onclick = () => {
+    document.querySelectorAll('input[name="type"]:checked').forEach(e => { e.checked = false })
+    document.querySelectorAll('input[name="sex"]:checked').forEach(e => { e.checked = false })
+    // document.getElementById('search__country').value = 'selected'
+    document.getElementById('refugename').value = ''
+  }
+})()
+</script>
+
+<script>
+(()=>{
+  const btn = document.getElementById('search')
+  btn.onclick = () => { post() }
+
+  function buildPostObj() {
+    const types = []
+    const sexes = []
+    document.querySelectorAll('input[name="type"]:checked').forEach(e => types.push(e.value))
+    document.querySelectorAll('input[name="sex"]:checked').forEach(e => sexes.push(e.value))
+    const country = document.getElementById('search__country').value
+    const refuge = document.getElementById('refugename').value
+    const obj = {
+      type: types,
+      sex: sexes,
+      country: country,
+      refuge: refuge
+    }
+
+    return obj
+  }
+
+  function post() {
+    fetch('/api/search', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(buildPostObj())
+    })
+    .then(res => {
+      return res.json()
+    })
+    .then((data) => {
+      handleCards(data)
+    })
+  }
+
+  function handleCards(data) {
+    const container = document.querySelector('.bloc_2 .row')
+    container.innerHTML = ''
+
+    data.forEach(card => {
+      const col = document.createElement('div')
+      const a = document.createElement('a')
+      const cardEl = document.createElement('div')
+      const img = document.createElement('img')
+      const body = document.createElement('div')
+      const title = document.createElement('h5')
+      const text = document.createElement('p')
+
+      col.classList.add('col')
+      cardEl.classList.add('card')
+      img.classList.add('card-img-top')
+      body.classList.add('card-body')
+      title.classList.add('card-title')
+      text.classList.add('card-text')
+
+      a.setAttribute('href', `/pet/${card.pet.id}`)
+      img.src = card.pet.photo
+      title.innerText = `${card.pet.name}, ${card.pet.age} роки`
+      text.innerText = `Притулок "${card.refuge.name}" ${card.refuge.address}`
+
+      body.appendChild(title)
+      body.appendChild(text)
+      cardEl.appendChild(img)
+      cardEl.appendChild(body)
+      a.appendChild(cardEl)
+      col.appendChild(a)
+      container.appendChild(col)
+    })
+  }
+})()
+</script>
+
+<script>
+  var x, i, j, l, ll, selElmnt, a, b, c;
+  /*look for any elements with the class "custom-select":*/
+  x = document.getElementsByClassName("custom-select");
+  l = x.length;
+  for (i = 0; i < l; i++) {
+    selElmnt = x[i].getElementsByTagName("select")[0];
+    ll = selElmnt.length;
+    /*for each element, create a new DIV that will act as the selected item:*/
+    a = document.createElement("DIV");
+    a.setAttribute("class", "select-selected");
+    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+    x[i].appendChild(a);
+    /*for each element, create a new DIV that will contain the option list:*/
+    b = document.createElement("DIV");
+    b.setAttribute("class", "select-items select-hide");
+    for (j = 1; j < ll; j++) {
+      /*for each option in the original select element,
+      create a new DIV that will act as an option item:*/
+      c = document.createElement("DIV");
+      c.innerHTML = selElmnt.options[j].innerHTML;
+      c.addEventListener("click", function(e) {
+          /*when an item is clicked, update the original select box,
+          and the selected item:*/
+          var y, i, k, s, h, sl, yl;
+          s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+          sl = s.length;
+          h = this.parentNode.previousSibling;
+          for (i = 0; i < sl; i++) {
+            if (s.options[i].innerHTML == this.innerHTML) {
+              s.selectedIndex = i;
+              h.innerHTML = this.innerHTML;
+              y = this.parentNode.getElementsByClassName("same-as-selected");
+              yl = y.length;
+              for (k = 0; k < yl; k++) {
+                y[k].removeAttribute("class");
+              }
+              this.setAttribute("class", "same-as-selected");
+              break;
+            }
+          }
+          h.click();
+      });
+      b.appendChild(c);
+    }
+    x[i].appendChild(b);
+    a.addEventListener("click", function(e) {
+        /*when the select box is clicked, close any other select boxes,
+        and open/close the current select box:*/
+        e.stopPropagation();
+        closeAllSelect(this);
+        this.nextSibling.classList.toggle("select-hide");
+        this.classList.toggle("select-arrow-active");
+      });
+  }
+  function closeAllSelect(elmnt) {
+    /*a function that will close all select boxes in the document,
+    except the current select box:*/
+    var x, y, i, xl, yl, arrNo = [];
+    x = document.getElementsByClassName("select-items");
+    y = document.getElementsByClassName("select-selected");
+    xl = x.length;
+    yl = y.length;
+    for (i = 0; i < yl; i++) {
+      if (elmnt == y[i]) {
+        arrNo.push(i)
+      } else {
+        y[i].classList.remove("select-arrow-active");
+      }
+    }
+    for (i = 0; i < xl; i++) {
+      if (arrNo.indexOf(i)) {
+        x[i].classList.add("select-hide");
+      }
+    }
+  }
+  /*if the user clicks anywhere outside the select box,
+  then close all select boxes:*/
+  document.addEventListener("click", closeAllSelect);
+  </script>
+</html>

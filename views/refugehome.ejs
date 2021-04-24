@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands&Paws</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/reset.css">
+    <link rel="stylesheet" href="CSS/profile_style.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/fonts.css">
+    <link rel="stylesheet" href="CSS/header.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+        <a href="/" class="head_logo-link">
+        <img src="/HTML/img/Hands&Paws.svg" alt="Main" class="header_logo">
+        <img src="/HTML/img/logo_white.svg" alt="Logo" class="header_logo-pic">
+        </a>
+        </div>
+        <nav class="header_nav">
+            <a href="/" class="main_link">Головна</a>
+            <a href="/catalog" class="main_link">Каталог</a>
+            <a href="/helpus" class="main_link">Help us</a>
+            <a href="/faq" class="main_link">F.A.Q.</a>
+            <div class="Authentification">
+                <a href="/" class="Profile">Профіль</a>
+            </div>
+        </nav>
+    </div> 
+<div class="prof_info">
+    <div class="main1">
+        <article id="Name">"<%- refuge.name %>"</article>
+        <div class="bloc_1">
+            <section class="bloc_1_1">
+                    <p>Країна: </p>
+                    <p>Адреса:</p>
+                    <p>Пошта: </p>
+            </section>
+            <section class="bloc_1_2">  <!-- Ссилається на БД -->
+                <p id="Country"><%- refuge.country %></p>
+                <p id="Address"><%- refuge.address %></p>
+                <p id="Email"><%- refuge.email %></p>
+            </section>
+            <input id="Message" type="image" src="/HTML/img/prof_msg.png"  onclick="show()">
+        </div>
+    </div>
+    <% if (requests.length) { %>
+        <div class="main2">
+            <nav id="messages">
+                <% requests.forEach(request => { %>
+                    <section class="block">
+                        <h1> <span id="name_of_pet"><%- request.pet %> </span>, <%- request.user.name %></h1>
+                        <p id="Phone">Телефон: <%- request.user.phone %></p>
+                        <p id="Email">Email: <%- request.user.email %></p> 
+                    </section>                 
+                <% }) %>    
+            </nav>
+        </div>
+    <% } %>
+    <script>
+        function show() {
+        var x = document.getElementById("messages");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+    </script>
+</div>
+<div class="Pets">
+    <div class="l-wrap">
+        <div class="three-col-grid">
+            <% for (let card of freecards) { %>
+                <div class="col">
+                    <a href="/pet/<%- card.pet.id %> ">
+                    <div class="card">
+                        <img src="<%= card.pet.photo %>" class="card-img-top" alt="...">
+                        <p class="card-text">Name: <%- card.pet.name %></p>
+                    </div>
+                    </a>
+                </div>
+            <% } %>
+            <% for (let card of userscards) { %>
+                <div class="col">
+                    <a href="/pet/<%- card.pet.id %> ">
+                    <div class="card">
+                        <img src="<%= card.pet.photo %>" class="card-img-top" alt="...">
+                        <p class="card-text">Name: <%- card.pet.name %></p>
+                        <p class="card-text">User: <%- card.user.name %></p>
+                        <p class="card-text">User phone: <%- card.user.phone %></p>
+                        <p class="card-text">User email: <%- card.user.email %></p>
+                    </div>
+                    </a>
+                </div>
+            <% } %>
+            <a href="/add" id="add__card">
+                <label class="add_card" for="add">
+                    <input type="image" id="plus"src="/HTML/img/plus.png" name="add">
+                    <p>Додати</p>
+                </label>
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <img src="/HTML/img/footer.png" id="dog">
+    <div class="foot">
+        <div class="f_1">
+        <img src="/HTML/img/logo_white.svg"  class="header_logo-pic2">
+        <select id="country" name="countryRef">
+            <option value="Ukraine">Українcька</option>
+            <option value="Russia">Російська</option>
+            <option value="Poland">Польська</option>
+            </select>
+        </div>
+        <div class="f_2">
+            <p>Слідкуйте за нами:</p>
+            <a href="https://www.facebook.com/" class="media">
+            <img src="/HTML/img/facebook 1.png" alt=""></a>
+            <a href="https://twitter.com/?lang=uk" class="media">
+            <img src="/HTML/img/twitter 1.png" alt=""></a>
+            <a href="https://www.instagram.com/" class="media">
+            <img src="/HTML/img/instagram.png" alt=""></a></a>
+        </div>
+        <div class="f_3">
+            <p class="Contacts">Контакти</p>
+            <div class="Mail">
+                <img src="/HTML/img/message.png" alt="">
+                <p> handp@gmail.com <br>
+                    +380983844425</p>
+            </div>
+            </div>
+            <div class="f_4">
+                <p class="Adress_1">Адреса:</p>
+                <div class="Adress_2">
+                <img src="/HTML/img/location.png" alt="">
+                <p>Україна, м.Львів <br>
+                    вул. Стрийська 18, офіс 102</p>
+                </div>
+            </div>
+    </div>
+</footer>
+</body>
+</html>

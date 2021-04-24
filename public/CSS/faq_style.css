@@ -1,0 +1,49 @@
+.bloc_1{
+  padding-top: 100px;
+  width: 100%;
+  text-align: center;
+
+}
+.heading{
+  font-family: Open Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 143.7%;
+align-items: center;
+text-align: center;
+letter-spacing: 0.1em;
+color: #FF9B9B;
+}
+
+#pic_1{
+  position: absolute;
+  left: 25px;
+top: 80px;
+  z-index: 1000;
+}
+#pic_2{
+  position: absolute;
+  right: 0;
+  top: 700px;
+  z-index: 1000;
+}
+.bloc h1{
+  padding-top: 20px;
+  padding-bottom: 70px ;
+  font-family: Open Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 36px;
+line-height: 143.7%;
+align-items: center;
+text-align: center;
+letter-spacing: 0.1em;
+color: #006C8E;
+}
+.bloc{
+  padding-bottom: 30px;
+}
+.questions {
+  overflow: hidden;
+}

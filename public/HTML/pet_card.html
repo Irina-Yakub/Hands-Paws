@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands&Paws</title>
+    <link rel="stylesheet" href="CSS/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/pet_card.css">
+    <link rel="stylesheet" href="CSS/fonts.css">
+</head>
+<body>
+<div class="block">
+    <a href="/"><img src="/HTML/img/arrow_back.png" style="margin-top: 30px; margin-left: 30px;"></a>
+    <div class="bloc_1">
+        <form action="" class="pet_img">
+            <label id="imageUpload" title="Upload image">
+                <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png">
+                <img src="/HTML/img/camera.png">
+            </label>
+        </form>
+        <div class="center">
+            <form action="" class="content" method="POST" >
+                    <input class="input" type="text" name="petName" type="text"  placeholder="Ім’я тварини*" required></p>
+                    <input class="input" type="text" name="petAge" placeholder="Вік*" required>
+                    <input class="input" type="text" name="petWeight" placeholder="Вага*" required>
+                    <div class="sex">
+                        <p>Стать*</p>
+                            <ul>
+                                <li>
+                                    <label class="radio">
+                                        <input type="radio" name="sex" value="female">
+                                        Ж
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="sex" value="male">
+                                        Ч
+                                    </label>
+                                </li>
+                            </ul>  
+                    </div>
+            </form>
+        </div> 
+    </div>
+    <div class="bloc_2">
+        <div class="type">
+            <h1>Категорія*</h1>
+            <ul>                
+                <li>
+                    <label>
+                        <input type="radio" value="Dog" name="type">
+                        Собака
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" value="Cat" name="type">
+                        Кіт
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" value="Rodent" name="type">
+                        Гризун
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" value="Else" name="type">
+                        Інше
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <div class="Description">
+            <h1>Детальний опис</h1>
+            <textarea type="text" id="info"></textarea>
+        </div>
+    </div>
+    <div class="border-gradient1">
+        <input type="submit" id="submit" value="Зберегти" name="save"  />
+    </div>
+</div>
+</body>
+<script>
+(() => {
+const image = document.getElementById('image')
+const petName = document.getElementsByName('petName')[0]
+const petAge = document.getElementsByName('petAge')[0]
+const petWeight = document.getElementsByName('petWeight')[0]
+const sex = Array.from(document.querySelectorAll('input[name="sex"]'))
+const type = Array.from(document.querySelectorAll('input[name="type"]'))
+const info = document.getElementById('info')
+
+const fileToBase64 = async (file) =>
+    new Promise((resolve, reject) => {
+        const reader = new FileReader()
+        reader.readAsDataURL(file)
+        reader.onload = () => resolve(reader.result)
+        reader.onerror = (e) => reject(e)
+    })
+
+const reg = document.getElementById('submit')
+reg.onclick = async () => {
+    if (!validate().status) {
+        // handle validate
+        console.log(validate())
+        return
+    }
+
+    const data = {
+        photo: await fileToBase64(image.files[0]),
+        name: petName.value,
+        age: petAge.value,
+        weight: petWeight.value,
+        sex: sex.filter(e => e.checked)[0].value,
+        type: type.filter(e => e.checked)[0].value,
+        info: info.value
+    }
+    const res = await fetch('/api/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+
+    const contentType = res.headers.get("content-type")
+    if (contentType && contentType.indexOf("application/json") !== -1) {
+        const json = await res.json()
+        console.log(json)
+        if ('redirect' in json) {
+            document.location = `http://localhost:3000${json.redirect}`
+        }
+        return
+    }
+}
+
+function validate() {
+    if (!image.files.length) { return { status: false, message: 'set the photo' } } // no image
+    if (!petName.value) { return { status: false, message: 'set pet name' } } // no name
+    if (!petAge.value) { return { status: false, message: 'set pet age' } } // no age
+    if (!petWeight.value) { return { status: false, message: 'set pet weight' } } // no weight
+    if (!sex.some(e => e.checked)) { return { status: false, message: 'set pet sex' } } // no sex
+    if (!type.some(e => e.checked)) { return { status: false, message: 'set pet type' } } // no type
+    if (!info.value) { return { status: false, message: 'set pet info' } } // no info
+
+    return { status: true, message: 'validated' }
+}
+})()
+</script>
+</html>

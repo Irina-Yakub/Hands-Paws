@@ -1,0 +1,130 @@
+html{
+    box-sizing: border-box;
+  }
+  *, *::before, *::after{
+	box-sizing: inherit;
+  }
+.bloc_1{
+  margin-top: 140px;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  height: 400px;
+}
+.block{
+  background: #CFEFFC;
+  border-radius: 10px;
+width: 600px;
+height: 300px;
+margin-left: 140px;
+}
+h1{
+  padding-left: 40px;
+  padding-top: 10px;
+  font-family: Roboto Slab;
+font-style: normal;
+font-weight: bold;
+font-size: 36px;
+line-height: 47px;
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.16em;
+color: #054662;
+}
+.content{
+  display: flex;
+  position: relative;
+  margin-top: 20px;
+}
+.bloc_1-1{
+  margin-left: 40px;
+  padding-right: 100px;
+  float: left;
+font-family: Open Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 24px;
+color: #131A4B;
+opacity: 0.8;
+
+}
+.bloc_1-2{
+font-family: Open Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 24px;
+color: #131A4B;
+float: left;
+width: 240px;
+}
+.bloc_2{
+  margin-left: 120px;
+  padding-bottom: 30px;
+  justify-items: center;
+}
+.bloc_2-1{
+
+  display: flex;
+  margin-top: 30px;
+}
+h2{
+  padding-top: 10px;
+  font-family: Roboto Slab;
+font-style: normal;
+font-weight: bold;
+font-size: 36px;
+line-height: 47px;
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.16em;
+color: #054662;
+}
+#Info{
+  border: solid 1px #0881B6 ;
+  border-radius: 10px;
+  font-family: Open Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 25px;
+letter-spacing: 0.1em;
+color: #054662;
+width: 580px;
+max-height:auto;
+}
+
+.btn{
+  margin:auto;
+  width: 340px;
+  height: 76px;
+  }
+  .btn button{
+    border-radius: 30px;
+    font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 143.7%;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.1em;
+  color: #054662;
+  }
+  .btn button:hover{
+    
+  }
+  .border-gradient1{
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border: solid 5px transparent;
+    background-image: linear-gradient(#054662, #0881B6),linear-gradient(130deg, #054662, #0881B6);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 2px 1000px 1px #FF9B9B inset;
+  }
